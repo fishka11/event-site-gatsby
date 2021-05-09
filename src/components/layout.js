@@ -1,55 +1,40 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
+import React from 'react';
+import PropTypes from 'prop-types';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faMapMarkerAlt,
+  faAt,
+  faPhone,
+  faFax,
+  faGlobe,
+  faFilePdf,
+} from '@fortawesome/free-solid-svg-icons';
+import Cookies from './cookies';
+import Header from './header';
+import Footer from './footer';
+import SEO from './seo';
 
-import * as React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import '../styles/layout.scss';
+import * as layoutStyles from './layout.module.scss';
 
-import Header from "./header"
-import "./layout.css"
+library.add(faMapMarkerAlt, faAt, faPhone, faFax, faGlobe, faFilePdf);
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
-}
+const Layout = ({ children, slug, currentEventName }) => (
+  <div className={layoutStyles.siteWrapper}>
+    <div className={layoutStyles.headerWithContent}>
+      <Header currentEventName={currentEventName} />
+      <SEO slug={slug} currentEventName={currentEventName} />
+      {children}
+    </div>
+    <Footer currentEventName={currentEventName} />
+    <Cookies />
+  </div>
+);
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+  children: PropTypes.shape().isRequired,
+  slug: PropTypes.string.isRequired,
+  currentEventName: PropTypes.string.isRequired,
+};
 
-export default Layout
+export default Layout;

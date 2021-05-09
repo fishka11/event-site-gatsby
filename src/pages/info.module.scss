@@ -1,0 +1,35 @@
+.section {
+  margin-bottom: 3rem;
+}
+
+.pointer {
+  display: block;
+  max-width: 100%;
+}
+
+.h2 {
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  color: #2a51ab;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.h2::before {
+  position: absolute;
+  content: "";
+  background: grey;
+  width: 70%;
+  height: 1px;
+  bottom: 0;
+}
+
+.address {
+  display: flex;
+  font-size: 1.1rem;
+}
+
+.icon {
+  margin-right: 1rem;
+  margin-top: 0.4rem;
+}

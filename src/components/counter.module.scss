@@ -1,0 +1,39 @@
+.prolog {
+  color: #fff;
+  text-shadow: 0 0 0.125rem #000;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.counterContainer,
+.counterContainer2 {
+  color: #fff;
+  text-shadow: 0 0 0.125rem #000;
+  margin-bottom: 5rem;
+  background: #ca1818;
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.3rem;
+}
+
+.counterContainer2 {
+  margin-top: 1.5rem;
+}
+
+.counterContainer p,
+.counterContainer2 p {
+  margin-bottom: 0;
+}
+
+.invitation {
+  font-size: 1.45rem;
+  padding-top: 3.9rem;
+  padding-bottom: 3.4rem;
+}
+
+.digit {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-right: 0.1rem;
+}

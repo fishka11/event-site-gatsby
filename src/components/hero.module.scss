@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+
+$featureColor: salmon;
+
+.jumbo {
+  background: url(../assets/top-kbn-bg.jpg) top no-repeat;
+  background-size: cover;
+  margin-bottom: 0 !important;
+  padding: 6rem 0 4rem !important;
+}
+
+.cite {
+  color: #fff;
+  font-weight: lighter;
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.author {
+  font-size: 1rem;
+  font-style: normal;
+}
+
+.title {
+  font-family: 'Unica One', serif;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 0.125rem #000;
+  color: #fff;
+}
+.title::before {
+  display: none;
+}
+
+.location,
+.date {
+  color: #fff;
+  text-shadow: 0 0 0.125rem #000;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.location {
+  margin-bottom: 0;
+}
+
+.callToAction {
+  text-transform: uppercase;
+  margin-bottom: 5rem;
+}
+
+.features {
+  background: rgba($color: #000000, $alpha: 0.4);
+  text-shadow: 0 0 0.125rem #000;
+  color: #fff;
+}
+
+.featuresContainer {
+  margin: 1.5rem 1.8rem;
+}
+
+.features h4 {
+  color: $featureColor;
+  font-size: 1.4rem;
+}
+
+.features p {
+  margin-bottom: 0;
+}
+
+.features dt,
+.speaker {
+  color: $featureColor;
+  font-weight: 500;
+}
+
+.featureHeader {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem !important;
+}
+
+.speakerDescription {
+  font-size: 0.7rem;
+}
+
+.features img {
+  max-width: 100%;
+  height: auto;
+}

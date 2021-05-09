@@ -1,0 +1,39 @@
+.agendaItem {
+  margin-bottom: 1.3rem;
+}
+
+.pointer {
+  display: block;
+  max-width: 100%;
+}
+
+.agendaItemTitle {
+  padding: 0.5rem 1rem;
+}
+
+.agendaItemTitle h3 {
+  font-size: 1.3rem;
+}
+
+.agendaItem:nth-child(2n + 1) .agendaItemTitle {
+  background-color: #e6e6e6;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.agendaItem:nth-child(2n) .agendaItemTitle {
+  background-color: #efefef;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.header4 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #ca1818;
+}
+
+.icon {
+  text-align: center;
+  font-size: 6rem;
+  display: block !important;
+  margin: 2rem auto;
+}

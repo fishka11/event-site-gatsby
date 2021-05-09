@@ -1,0 +1,17 @@
+.groupName {
+  font-size: 1.6rem;
+  color: #2a51ab;
+  text-align: center;
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+.groupName::after {
+  position: absolute;
+  content: "";
+  background: grey;
+  width: 40%;
+  height: 1px;
+  bottom: -8px;
+  left: 30%;
+}

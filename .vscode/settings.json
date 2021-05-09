@@ -1,0 +1,12 @@
+{
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.formatOnSave": false
+      },
+    "files.eol": "\n",
+    "prettier.singleQuote": true,
+    "eslint.alwaysShowStatus": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      }
+}

@@ -1,89 +1,66 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql, useStaticQuery } from 'gatsby';
+import { Helmet } from 'react-helmet';
 
-import * as React from "react"
-import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-
-function Seo({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
+const SEO = ({ currentEventName, slug }) => {
+  const data = useStaticQuery(
     graphql`
       query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
+        graphcms {
+          events {
+            ...EventName
+            ...EventFullName
+            ...EventMenuItems
           }
         }
       }
     `
-  )
-
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
-
+  );
+  const currentEvent = data.graphcms.events.find(
+    item => item.eventName.toLowerCase() === currentEventName.toLowerCase()
+  );
+  const meta = currentEvent.eventSiteMenu.find(item =>
+    slug ? String(item.path) === slug : item.path === null
+  );
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
-  )
-}
+    <Helmet>
+      <title>{meta.title}</title>
+      <meta name="description" content={meta.description} />
+      <html lang="pl" />
+    </Helmet>
+  );
+};
 
-Seo.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
+SEO.propTypes = {
+  currentEventName: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  data: PropTypes.shape({
+    graphcms: PropTypes.shape({
+      events: PropTypes.arrayOf(
+        PropTypes.shape({
+          eventFullName: PropTypes.string.isRequired,
+          eventName: PropTypes.string.isRequired,
+          eventSiteMenu: PropTypes.arrayOf(
+            PropTypes.shape({
+              id: PropTypes.string.isRequired,
+              itemOrder: PropTypes.number,
+              displayName: PropTypes.string,
+              title: PropTypes.string,
+              description: PropTypes.string,
+              path: PropTypes.PropTypes.string,
+              visibleInMenu: PropTypes.bool,
+              button: PropTypes.bool,
+            })
+          ),
+        })
+      ),
+    }),
+  }),
+};
 
-Seo.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-}
+SEO.defaultProps = {
+  data: {},
+};
 
-export default Seo
+export default SEO;

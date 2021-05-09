@@ -1,0 +1,44 @@
+@import '../styles/kbn.scss';
+
+.navbar {
+  padding: 0;
+  text-transform: uppercase;
+  background-color: $main-color;
+  border-bottom: 1px solid $darker-main-color;
+}
+
+.nav {
+  width: 100%;
+}
+
+.navLink::before {
+  position: absolute;
+  content: '';
+  display: block;
+  height: 1px;
+  width: 0;
+  bottom: 4px;
+  left: 0.5rem;
+  background-color: #fff;
+  transition: all 0.15s ease-in-out;
+}
+
+.navLink:hover::before,
+.navLinkActive::before {
+  width: calc(100% - 1rem);
+}
+
+.navLink.active {
+  color: greenyellow;
+}
+
+.navLink {
+  color: #f5f3f5;
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .navBtn {
+    margin-left: auto;
+  }
+}
