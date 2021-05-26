@@ -23,23 +23,24 @@ const Hero = ({ currentEvent }) => {
   const eventEndDate = new Date(currentEvent.eventEndDate);
   const { cancelled } = currentEvent;
 
-  useEffect(() => {
-    const element = featuredRef.current;
-    gsap.set([element], { autoAlpha: 0 });
-    const tl = gsap.timeline({ dafaults: { easae: 'power3.inOut' } });
-    tl.fromTo(
-      element,
-      { y: '+=200' },
-      { duration: 1, y: '-=200', autoAlpha: 1, delay: 0.5 }
-    );
-  });
+  // useEffect(() => {
+  //   const element = featuredRef.current;
+  //   gsap.set([element], { autoAlpha: 0 });
+  //   const tl = gsap.timeline({ dafaults: { easae: 'power3.inOut' } });
+  //   tl.fromTo(
+  //     element,
+  //     { y: '+=200' },
+  //     { duration: 1, y: '-=200', autoAlpha: 1, delay: 0.5 }
+  //   );
+  // });
 
   return (
     <section>
       <Jumbotron fluid className={heroStyles.jumbo}>
         <Container>
           <Row>
-            <Col lg={7}>
+            {/* <Col lg={7}> */}
+            <Col lg={12} className={heroStyles.center}>
               <div>
                 {currentEvent.cite ? (
                   <p className={heroStyles.cite}>
@@ -94,7 +95,7 @@ const Hero = ({ currentEvent }) => {
               <Counter eventStartDate={eventStartDate} cancelled={cancelled} />
               <Independence />
             </Col>
-            <Col ref={featuredRef} className={heroStyles.features} lg={5}>
+            {/* <Col ref={featuredRef} className={heroStyles.features} lg={5}>
               <div className={heroStyles.featuresContainer}>
                 <p className={heroStyles.featureHeader}>Debata:</p>
                 <h4>
@@ -156,7 +157,7 @@ const Hero = ({ currentEvent }) => {
                   </Col>
                 </Row>
               </div>
-            </Col>
+            </Col> */}
           </Row>
         </Container>
       </Jumbotron>

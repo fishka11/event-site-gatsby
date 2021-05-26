@@ -137,9 +137,9 @@ const Info = ({ data }) => {
                       <li key={discount.id}>
                         {discount.name !== 'uczestnicy szkoleń'
                           ? `${discount.name}: -${discount.discount}%`
-                          : `${discount.name} z ${
-                              eventStartDate.getFullYear() - 1
-                            } i ${eventStartDate.getFullYear()} r: -${
+                          : `${discount.name} w latach ${
+                              eventStartDate.getFullYear() - 2
+                            }-${eventStartDate.getFullYear()}: -${
                               discount.discount
                             }%`}
                       </li>

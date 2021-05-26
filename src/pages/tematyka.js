@@ -22,7 +22,8 @@ const Agenda = ({ data }) => {
         <h1>Tematyka i Program</h1>
         <section>
           <Row>
-            <Col md={8} lg={9}>
+            {/* <Col md={8} lg={9}> */}
+            <Col lg={12}>
               {agenda.map(title => (
                 <Row
                   key={agenda.indexOf(title)}
@@ -48,7 +49,7 @@ const Agenda = ({ data }) => {
                 </Row>
               ))}
             </Col>
-            <Col md={4} lg={3}>
+            {/* <Col md={4} lg={3}>
               <h4 className={tematykaStyles.header4}>
                 Szczegółowy program Konferncji do pobrania
               </h4>
@@ -58,7 +59,7 @@ const Agenda = ({ data }) => {
                   className={tematykaStyles.icon}
                 />
               </Link>
-            </Col>
+            </Col> */}
           </Row>
         </section>
       </Container>
