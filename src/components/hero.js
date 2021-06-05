@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
@@ -60,7 +61,7 @@ const Hero = ({ currentEvent }) => {
                     key={multilineTitle.indexOf(item)}
                     className={
                       multilineTitle.indexOf(item) === 0
-                        ? 'd-block display-2'
+                        ? `d-block ${heroStyles.display2}`
                         : 'd-block display-5'
                     }
                   >

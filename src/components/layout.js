@@ -14,7 +14,7 @@ import Header from './header';
 import Footer from './footer';
 import SEO from './seo';
 
-import '../styles/layout.scss';
+import '../styles/main.scss';
 import * as layoutStyles from './layout.module.scss';
 
 library.add(faMapMarkerAlt, faAt, faPhone, faFax, faGlobe, faFilePdf);

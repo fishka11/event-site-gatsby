@@ -37,3 +37,9 @@
   font-weight: 700;
   margin-right: 0.1rem;
 }
+
+@media screen and (max-width: 576px) {
+  .digit {
+    font-size: 1.5rem;
+  }
+}

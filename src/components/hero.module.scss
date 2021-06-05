@@ -36,6 +36,12 @@ $featureColor: salmon;
   display: none;
 }
 
+.display2 {
+  font-size: 5.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
 .location,
 .date {
   color: #fff;
@@ -90,4 +96,13 @@ $featureColor: salmon;
 .features img {
   max-width: 100%;
   height: auto;
+}
+
+@media screen and (max-width: 576px) {
+  .display2 {
+    font-size: 2.5rem !important;
+  }
+  .callToAction {
+    margin-bottom: 2rem;
+  }
 }
